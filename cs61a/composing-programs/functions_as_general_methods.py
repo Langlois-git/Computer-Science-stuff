@@ -5,4 +5,16 @@ def improve(update, close, guess=1):
         guess = update(guess)
     return guess
 
+# The improve function is a general method of repetitive refinement, it doesnt specify what is bejing solved.
+# The golden ration can be calculated by repeatedly summing the inverse of any positive number with one and that it is 1 less than its square
+# We can express these properties as functions, to be used with our impove function
+
+def phi_update(guess):
+    return 1/ guess + 1
+
+def square_close(guess):
+    return approx_eq(guess * guess, guess + 1)
+
+def approx_eq(x, y, tolerance=1e-15):
+    return abs(x-y): < tolerance
 
