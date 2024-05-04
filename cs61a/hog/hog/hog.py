@@ -40,10 +40,12 @@ def boar_brawl(player_score, opponent_score):
 
     """
     # BEGIN PROBLEM 2
-    tens_digit_of_opponent_score = opponent_score // 10
-    ones_digit_of_player_score = player_score % 10
-    possible_score = abs(tens_digit_of_opponent_score - ones_digit_of_player_score)*3
-    return max(1, possible_score)
+    if len(str(opponent_score)) > 1:
+        tens_digit_of_opponent_score = int(str(opponent_score)[-2])
+    else:
+        tens_digit_of_opponent_score = 0
+    ones_digit_of_player_score = int(str(player_score)[-1])
+    return max(1, abs(tens_digit_of_opponent_score - ones_digit_of_player_score) * 3)
     # END PROBLEM 2
 
 
