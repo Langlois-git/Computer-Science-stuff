@@ -111,4 +111,10 @@ def make_repeater(f, n):
     >>> make_repeater(square, 3)(5) # square(square(square(5)))
     390625
     """
-    
+    def repeater(x):
+        for i in range(n):
+            x = f(x)
+        return x 
+    return repeater
+
+run_docstring_examples(make_repeater, globals(), True)
