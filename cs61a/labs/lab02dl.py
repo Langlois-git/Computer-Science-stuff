@@ -65,7 +65,7 @@ def count_primes(n):
 
 # The implementations look quite similar! Generalize this logic by writing a function count_cond, which takes in a two-argument predicate function condition(n, i). count_cond returns a one-argument function that takes in n, which counts all the numbers from 1 to n that satisfy condition when called.
 
-    Note: When we say condition is a predicate function, we mean that it is a function that will return True or False.
+# Note: When we say condition is a predicate function, we mean that it is a function that will return True or False.
 
 def sum_digits(y):
     """Return the sum of the digits of non-negative integer y."""
@@ -111,4 +111,11 @@ def count_cond(condition):
     8
     """
     def counter(n):
-        j
+        total = 0
+        k = 0
+        while k <= n:
+            if condition(k):
+                total += 1
+            k += 1
+        return total
+ 
