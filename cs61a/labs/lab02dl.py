@@ -9,6 +9,7 @@
 # print(2 and 1) #<- This should return True 
 
 from doctest import run_docstring_examples
+from operator import add
 
 def composite_identity(f, g):
     """
@@ -111,11 +112,31 @@ def count_cond(condition):
     8
     """
     def counter(n):
-        total = 0
-        k = 0
-        while k <= n:
-            if condition(k):
-                total += 1
-            k += 1
-        return total
+        condition_is_true = 0
+        current_value = 1
+        while current_value <= n:
+            if condition(n, current_value) == True:
+                condition_is_true += 1
+            current_value += 1
+        return condition_is_true
+    return counter
  
+
+run_docstring_examples(count_cond, globals(), True)
+# Write a function that takes in two numbers and returns the smallest number that is a multiple of both.
+
+def multiple(a, b):
+    """Return the smallest number n that is a multiple of both a and b.
+
+    >>> multiple(3, 4)
+    12
+    >>> multiple(14, 21)
+    42
+    """
+    smallest = min(a, b)
+    biggest = max(a, b)
+    while biggest % smallest != 0:
+        if smallest > biggest:
+            biggest += biggest 
+        smallest += smallest
+    return smallest
