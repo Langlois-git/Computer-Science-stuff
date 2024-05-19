@@ -115,7 +115,7 @@ def count_cond(condition):
         condition_is_true = 0
         current_value = 1
         while current_value <= n:
-            if condition(n, current_value) == True:
+            if condition(n, current_value):
                 condition_is_true += 1
             current_value += 1
         return condition_is_true
@@ -133,10 +133,16 @@ def multiple(a, b):
     >>> multiple(14, 21)
     42
     """
-    smallest = min(a, b)
-    biggest = max(a, b)
-    while biggest % smallest != 0:
-        if smallest > biggest:
-            biggest += biggest 
-        smallest += smallest
-    return smallest
+    add_small_value = min(a, b)
+    add_big_value = max(a, b)
+    big_total = add_big_value
+    small_total = add_small_value
+    
+    while (big_total % small_total != 0) and small_total <= 100:
+        if small_total > big_total:
+            big_total += add_big_value 
+        else:
+            small_total += add_small_value
+    return small_total 
+
+run_docstring_examples(multiple, globals(), True)
