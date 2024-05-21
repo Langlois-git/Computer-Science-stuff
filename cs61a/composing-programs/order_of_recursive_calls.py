@@ -18,5 +18,3 @@ def cascade(n):
 
 # The two definitions of cascade
 # - Both are equally clear, so its better to use the shorter one
-# When learning to write recursive functions put base cases first
-
