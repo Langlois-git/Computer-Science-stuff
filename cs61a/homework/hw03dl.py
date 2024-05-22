@@ -153,10 +153,16 @@ def count_coins(total):
     >>> count_coins(200)
     1463
     """
-    if total == 0:
-        return 1
-    elif total < 0:
-        return 0
-    else:
-        return 
-    
+    def partial_count(total, largest_coin):
+        if total == 0: # the only way to make 0 cents change is to owe 0
+            return 1
+        if total < 0: # cant have negative change
+            return 0
+        if largest_coin == None:
+            return 0
+        without_coin = partial_count(total, next_smaller_coin(largest_coin))
+        with_coin = partial_count(total - largest_coin, largest_coin)
+        return without_coin + with_coin
+    return partial_count(total, 25)
+            
+run_docstring_examples(count_coins, globals(), True)
