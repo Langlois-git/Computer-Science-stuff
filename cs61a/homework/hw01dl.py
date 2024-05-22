@@ -64,4 +64,51 @@ def hailstone(n):
 
 run_docstring_examples(hailstone, globals(), True)
 
+#Q4 Count coins
+# Given a positive integer total a set of coins makes change for total if the sume of the values of coins is total. Here we will use standard us coin values 1, 5, 10, 25 for example the following sets make change for 15,
+# 5 1-cents and 1 1-cents
+# 3 5-cent coins 
+# 5 1-cents and 2 5-cents
+# 1 10-cent and 1 5-cent 
 
+#Therefore there are 6 ways to make change for 15
+# Write a recursive function count_couins that takes a positive integer total and returns the number of ways to make change for total coins
+
+# You can use either of the following functions 
+
+def next_larger_coin(coin): 
+    """Returns the next larger coin in order
+    >>> next_larger_coin(1)
+    5
+    >>> next_larger_coin(5)
+    10
+    >>> next_larger_coin(10)
+    25
+    >>> next_larger_coin(2) # Other values return None
+    """
+    if coin == 1:
+        return 5
+    elif coin == 5:
+        return 10
+    elif coin == 10:
+        return 25
+
+def next_smaller_coin(coin):
+    """Returns the next smaller coin in order
+    >>> next_smaller_coin(25)
+    10
+    >>> next_smaller_coin(10)
+    5
+    >>> next_smaller_coin(5)
+    1
+    >>> next_smaller_coin(2) # Other values return None
+    """
+    if coin == 25:
+        return 10
+    elif coin == 10:
+        return 5
+    elif coin == 5:
+        return 1
+
+def count_coins(total):
+    """Return the number of ways used to make change with the standard US coin set"""
