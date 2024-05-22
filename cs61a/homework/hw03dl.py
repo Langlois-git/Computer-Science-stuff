@@ -158,7 +158,5 @@ def count_coins(total):
     elif total < 0:
         return 0
     else:
-        return count_coins(total)
-    return count_coins()
-    
+        return 
     
