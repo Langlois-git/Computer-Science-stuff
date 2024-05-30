@@ -51,8 +51,12 @@ def is_prime(n):
     >>> is_prime(521)
     True
     """
-    if n == 2:
-        return True
-    else:
-        i += 1
+    def iterator(n):
+        if n < 2:
+            return 1
+        else:
+            return iterator(n - 1) 
+    if n % iterator(n) == 0:
+        return  False
+    return iterator(n)
         
